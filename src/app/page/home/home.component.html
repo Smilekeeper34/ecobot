@@ -1,34 +1,58 @@
-<div class="back">
-<div class="container col d-flex justify-content-center mx-auto" >
-  <form>
-    <div class="form-group">
-      <select
-        class="form-select form-select-lg mb-3"
-        aria-label=".form-select-lg example"
-      >
-        <option selected>Select Currency</option>
-        <option value="1">ZWL</option>
-        <option value="2">USD</option>
-      </select>
-    </div>
-    <div class="form-group">
-      <select
-        class="form-select form-select-lg mb-3"
-        aria-label=".form-select-lg example"
-      >
-        <option selected>Select Payment Method</option>
-        <option value="1">Ecocash ZWL</option>
-        <option value="2" class="disabled">Ecocash USD</option>
-      </select>
-    </div>
-    <div class="form-group">
-      <label for="email">Phone Number</label>
-      <input type="email" class="form-control" name="email" />
-    </div>
+<div class="back d-flex align-items-center justify-content-center">
+  <div class="container col d-flex justify-content-center mx-auto">
+    <form [formGroup]="paymentForm" >
+      <div class="form-group">
+        <select
+          class="form-select form-select-lg mb-3"
+          aria-label=".form-select-lg example"
+          formControlName="currency"
+        >
+          <option selected >Select Currency</option>
+          <option value="zwl">ZWL</option>
+          <option value="usd" class="disabled" disabled >USD</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <select
+          class="form-select form-select-lg mb-3"
+          aria-label=".form-select-lg example"
+          formControlName="paymentChannel"
+        >
+          <option selected >Select Payment Method</option>
+          <option value="Ecocash ZWL">Ecocash ZWL</option>
+          <option value="Ecocash USD" class="disabled" disabled>Ecocash USD</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="amount">Amount</label>
+        <input
+          type="number"
+          class="form-control"
+          name="amount"
+          formControlName="amount"
+        />
+      </div>
+      <div class="form-group">
+        <label for="number">Phone Number</label>
+        <input
+          type="tel"
+          class="form-control"
+          name="phonenumber"
+          formControlName="msisdn"
+        />
+      </div>
+      <div class="form-group">
+        <label for="name">Sender Name</label>
+        <input
+          type="text"
+          class="form-control"
+          name="phonenumber"
+          formControlName="senderName"
+        />
+      </div>
 
-    <button type="reset" class="btn">Reset</button>
-    <button type="submit" class="btn" style="float: right">Submit</button>
-  </form>
+      <button type="reset" class="btn">Reset</button>
+      <button type="submit" class="btn" style="float: right" (click)="submitPayment()">Submit</button>
+    </form>
+  </div>
 </div>
-</div>
-
